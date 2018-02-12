@@ -1,0 +1,166 @@
+/* ------------------- Estilos Generales ----------------*/
+body{
+ background: #FFF;
+}
+
+
+.fondo{
+  position: relative;
+  width: 100%;
+  height: 100%;
+opacity: .3;
+}
+
+.fondo img{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.boton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ec008a;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 50%,
+		#b5b5b5);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.50, #ffffff),
+		to(#b5b5b5));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 3px solid #ec008a;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,1);
+}
+
+.blanco{
+  background-color: #fff;
+}
+
+.formulario {
+  opacity: .8;
+    background-color: #ffa5df;
+    color: #ec008a;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.form-control{
+  color: #000;
+}
+h2{
+  color: #ec008a;
+}
+a{
+  color: black;
+}
+.centrar{
+    text-align: center;
+}
+.sombra{
+    text-shadow: #f1d87d 2px 2px 3px;
+    color:#3399CC;
+}
+
+/*---------- Estilos ventanas emergentes ------------*/
+
+#Aventana
+{
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 20;
+  visibility: hidden;
+    text-align: center;
+}
+#Aviso
+{
+  background-color: #fff;
+  border: solid #57E6D5 3px;
+  width: 40%;
+  padding-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 10px -1px  #fff6af;
+    -moz-box-shadow: 0px 0px 10px -1px  #fff6af;
+    box-shadow: 0px 0px 10px -1px  #fff6af;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+
+}
+
+
+/* -------------------estilos del cuerpo de Carrito ----------------------------*/
+
+.ImagCar{
+    max-height: 100px;
+    min-height: 100px;
+    max-width: 100%;
+}
+.articulo{
+  padding: 10px;
+  background: #fff;
+  bottom: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+/* Móviles en horizontal o tablets en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .formulario {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -10%);
+      -webkit-transform: translate(-50%, -10%);
+    border-radius: 20px;
+  }
+
+  .sesion{
+      float: none;
+  }
+}
+
+  /* Móviles en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+
+    .formulario {
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%, -10%);
+        -webkit-transform: translate(-50%, -10%);
+      border-radius: 20px;
+    }
+
+    .sesion{
+        float: none;
+    }
+ }

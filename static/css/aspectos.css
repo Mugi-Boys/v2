@@ -1,0 +1,268 @@
+/*---------- Estilos generales para divs--------------*/
+.right{/*---------- Estilo texto alineado derecha--------------*/
+  text-align: right;
+}
+
+.left{/*---------- Estilo texto alineado izquierda--------------*/
+  text-align: left;
+}
+
+.center{/*---------- Estilo texto alineado centro--------------*/
+  text-align: center;
+}
+.sombra{/*---------- Estilo texto con sombra--------------*/
+    text-shadow: #f1d87d 2px 2px 3px;
+    color:#9a247a;
+}
+.top{/*---------- Estilo posicion--------------*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1130
+}
+.margin{/*---------- Estilo margen --------------*/
+  margin-bottom: 10px;
+}
+.oculto{/*---------- Estilo oculto --------------*/
+  visibility:hidden;
+  height: 2px;
+  overflow: hidden;
+}
+
+
+/*---------- Estilos ventanas emergentes  modals------------*/
+.Aventana /*overlay*/
+{
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1500;
+    bottom: 20px;
+    text-align: center;
+    overflow-y: auto !important;
+}
+.Aviso /*modal*/
+{
+    background-color: #fff;
+    border: solid #9a247a 3px;
+    /*max-height: 90%;*/
+    min-width: 40%;
+    padding: 20px,20px,20px,20px;
+    -webkit-box-shadow: 0px 0px 10px -1px  #fff6af;
+    -moz-box-shadow: 0px 0px 10px -1px  #fff6af;
+    box-shadow: 0px 0px 10px -1px  #fff6af;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    /*overflow-y: auto !important;
+    overflow-y: scroll;*/
+    z-index: 1550;
+
+}
+.nav-tabs {
+    border-bottom: 2px solid #982378;
+}
+.nav-tabs >li{
+    margin-bottom: -3px;
+    font-style:italic;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    border: 2px solid #982378;
+    border-bottom-color: transparent;
+    border-top: transparent;
+}
+@media (min-width: 320px) and (max-width: 750px){
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+      border-top: 2px solid #982378;
+    }
+    .Aviso /*modal*/{
+      width: 100%;
+      left: 0;
+      top: 0;
+      transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      min-height: 100%;
+    }
+}
+
+/*---------- Estilos botones en el menu ------------*/
+.btn-mgnt {
+    background-color: #982378;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 17px 0;
+    color: #fff;
+    -webkit-transition: all .2s ease 0s;
+    -o-transition: all .2s ease 0s;
+    transition: all .2s ease
+}
+
+.btn-mgnt:hover {
+    background: #346F77;
+    text-decoration: none;
+}
+
+.close{
+    background-color: inherit;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color: #9a247a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.rounded-circle{
+      border-radius: 50%;
+    position: relative;
+    top: -15px;
+    float: left;
+    left: -5px;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #982378;
+    color: #f9f9f9;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #982378;
+}
+header .dropdown-content a {
+    color: #982378;
+}
+
+
+/*---------------------- estilos de social Buttons --------------------*/
+.hr{/*------------------- estilo separacion continua con ---------------*/
+    display:inline-flex;
+    width: 30%;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    overflow: hidden;
+    border-style:solid;
+    height:3px;
+    border-top: 1px solid #595959;
+}
+.hrText{
+    color: #595959;
+}
+.socialBtn {
+    background: #D34836;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 1.2em;
+    padding: 5px 7px 5px 5px;
+    text-decoration: none;
+}
+
+.socialBtn img{
+    width: 100%;
+    background: #ffffff;
+    border-radius: 50%;
+    margin-right: 7px;
+    align:right;
+}
+
+.googleButton{
+  background: #D34836;
+}
+
+.googleButton:hover {
+  background: #e38d82;
+}
+
+.faceButton{
+  background: #3b5998;
+}
+
+.faceButton:hover {
+  background: #8b9dc3;
+}
+.imviatoriButton{
+  background: #ff0066;
+}
+
+.imviatoriButton:hover {
+  background: #ff99c2;
+}
+
+.imviatoriTouched{
+    background: #ffffff;
+    font-family: Arial;
+    margin: 0;
+    border: 0px;
+    padding: 0;
+    max-width: 80px;
+}
+
+/* ----------------- 95c9d0 ------------------- estilos de filtros seccion de esxperiencias---------------------------------------------- */
+.filter-icon{
+      border: 2px solid #346F77;
+      padding: 0.5rem;
+      display: inline-block;
+      border-radius: 50%;
+  }
+
+.filter-icon:hover, .filter-icon-active{
+  background-color: #cae4e8;
+}
+
+.filter-icon> img {
+      max-width: 2.5rem;
+  }
