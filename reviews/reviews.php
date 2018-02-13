@@ -34,18 +34,18 @@
                      INNER JOIN users ON reviews.id_user = users.id_user
                      WHERE experiences.id_user = $id_usua";
 
-                     $myReviewsR = mysqli_query($conexion,$myReviewsR);
+                     $myReviewsR = mysqli_query($conexion,$myReviews);
  										 while ($row = mysqli_fetch_array($myReviewsR)) {
                  ?>
                      <div class="col-md-12">
                        <div class="col-md-2">
-                         <img class="rounded" src="<?php echo $direccionBase.$photo; ?>" alt="">
+                         <img class="img-circle" src="<?php echo $direccionBase.$photo; ?>" alt="">
                        </div>
                        <div class="col-md-8">
-                         <p><strong><?php echo $row["name"]; ?></strong> date</p>
-                         <p>review</p>
+                         <p><strong><?php echo $row["name"]; ?></strong> <?php echo $row["date"]; ?></p>
+                         <p><?php echo $row["review"]; ?></p>
                          <div class="">
-                           score
+                           <?php echo $row["score"]; ?>
                          </div>
                        </div>
                      </div>
@@ -55,13 +55,29 @@
 
               <div class="col-md-6 col-lg-6 col-md-12">
                 <h3>Lo que he opinado</h3>
-                <?php
-                    $myOpinions="SELECT * FROM reviews where id_user=$id_usua";
-                    $result = mysqli_query($conexion,$myOpinions);
-										 while ($row = mysqli_fetch_array($result)) {
-											 echo "<h4>".$row["review"]."</h4>";
-										 }
+								<?php
+                     $myOpinions = "SELECT *
+                     FROM reviews
+                     INNER JOIN experiences ON reviews.id_experience = experiences.id_experience
+                     INNER JOIN users ON reviews.id_user = users.id_user
+                     WHERE reviews.id_user = $id_usua";
+
+                     $myOpinionsR = mysqli_query($conexion,$myOpinions);
+ 										 while ($row = mysqli_fetch_array($myOpinionsR)) {
                  ?>
+                     <div class="col-md-12">
+                       <div class="col-md-2">
+                         <img class="img-circle" src="<?php echo $direccionBase."v2/static/img/icons/natural.jpg"; ?>" alt="">
+                       </div>
+                       <div class="col-md-8">
+                         <p><strong><?php echo $row["name"]; ?></strong> <?php echo $row["date"]; ?></p>
+                         <p><?php echo $row["review"]; ?></p>
+                         <div class="">
+                           <?php echo $row["score"]; ?>
+                         </div>
+                       </div>
+                     </div>
+                <?php } ?>
               </div>
 
             </div>

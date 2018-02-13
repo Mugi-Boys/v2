@@ -72,96 +72,42 @@ function Registro(){
 
 //modificacion de usuarios
 function Musuario(){
-
-  validaTexto("nombre"); validaTexto("apellidos");
-  validaMail("correo");
-  if(!validaTexto("nombre") ||!validaTexto("apellidos") || !validaMail("correo")){
-return false;
-}
-else{
-    var iduser = $("#idusua").val();
-    var user = $("#nombre").val();
-    var apellidos = $("#apellidos").val();
-    var email = $("#correo").val();
-    var tel = $("#tel").val();
-    var dir = $("#dir").val();
-     $.ajax({
-          type: "POST",
-          url: "funcionUsuarios.php",
-          data: ("tarea=modifica"+"&idusua="+iduser+"&correo="+email+"&usuario="+user+"&apellidos="+apellidos+"&telefono="+tel+"&direccion="+dir),
-          dataType: "html",
-          beforeSend: function(){
-                  $("#boton").hide();
-									$("#carga").html('<img src="media/ajax-loader2.gif"/>').show();
-                                },
-          success: function(data){
-          location.reload();
+  validaTexto("n_firstname"); validaTexto("n_lastname");
+  if(!validaTexto("n_firstname") || !validaTexto("n_lastname")){
+    return false;
+    console.log("estoy aqui");
+  }
+  else{
+        var formData = new FormData(document.getElementById("myData"));
+        formData.append("tarea", "modifica");
+       $.ajax({
+            url: "../Custom-actions/funcionUsuarios.php",
+                  type: "post",
+                  dataType: "html",
+                  data: formData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+            beforeSend: function(){
+                    $("#boton").hide();
+  									$("#carga").html('<img src="media/ajax-loader.gif"/>').show();
+                                  },
+            success: function(data){
+                    if(data == "1"){
+                        $("#alerta").show();
+                        $("#boton").show();
+                        $("#registro").hide();
+                    }else{
+                          $("#boton").show();
+                          $("#carga").html('').hide();
+                          alert("Un error a ocurrido: "+data);
                         }
-             });
-           }
+            // location.reload();
+                          }
+               });
+             }
 }
 
-
-
-
-// el que genera los campos que se mostraran en los productos
-function Cproducto(){
-  var tipo = $("#tipo").val();
-      var user = $("#idusua").val();
-  $.ajax({
-      type: "POST",
-      url: "funcionProductos.php",
-      data: ("dato="+tipo+"&tarea=consulta"+"&idusua="+user),
-      dataType: "html",
-      success: function(data){
-        $("#productos").html(data);
-                    }
-  });
-}
-//registro de usuarios
-function Ipro(){
-            var formData = new FormData(document.getElementById("Iproducto"));
-            formData.append("tarea", "insertar");
-     $.ajax({
-          url: "funcionProductos.php",
-                type: "post",
-                dataType: "html",
-                data: formData,
-                cache: false,
-                contentType: false,
-	              processData: false,
-          beforeSend: function(){
-                  $("#boton").hide();
-									$("#carga").html('<img src="media/ajax-loader2.gif"/>').show();
-                                },
-          success: function(data){
-			  if(data == "1"){
-        $("#alerta").show();
-				$("#Iproducto").hide();
-				}else{
-
-				      $("#boton").show();
-							$("#carga").html('').hide();
-
-				}
-                        }
-             });
-}
-//funcion para Eliminar productos de la base de datos
-function Epro(id){
-
-  var sig = id+1;
-  $.ajax({
-      type: "POST",
-      url: "funcionProductos.php",
-      data: ("tarea=Elimina"+"&idprod="+id),
-      dataType: "html",
-      success: function(data){
-        Cproducto();
-        $("#d"+sig).focus();
-        }
-  });
-}
 
 //funcion para Modificar productos de la base de datos
 function Mpro(id){
@@ -177,7 +123,7 @@ function Mpro(id){
   	              processData: false,
             beforeSend: function(){
                     $("#boton").hide();
-  									$("#carga").html('<img src="media/ajax-loader2.gif"/>').show();
+  									$("#carga").html('<img src="media/ajax-loader.gif"/>').show();
                                   },
             success: function(data){
               console.log(data);
@@ -193,68 +139,6 @@ function Mpro(id){
                           }
                });
 }
-//funcion para agregar productos al carrito
-function Acarrito(id){
-
-  var val = $("#n"+id).val();
-      var user = $("#idusua").val();
-  $.ajax({
-      type: "POST",
-      url: "funcionCarrito.php",
-      data: ("tarea=Acarrito"+"&idprod="+id+"&cant="+val+"&idusua="+user),
-      dataType: "html",
-      success: function(data){
-        Ccarrito();
-        Cproducto();
-        $("#d"+id).focus();
-                    }
-  });
-}
-//funcion que muestra el numero de articulos en el carrito
-function Ccarrito(){
-      var user = $("#idusua").val();
-  $.ajax({
-      type: "POST",
-      url: "funcionCarrito.php",
-      data: ("tarea=Ccarrito"+"&idusua="+user),
-      dataType: "html",
-      success: function(data){
-        $("#NUcar").html(data);
-                    }
-  });
-}
-
-//funcion para agregar productos al carrito
-function Carrito(){
-      var user = $("#idusua").val();
-  $.ajax({
-      type: "POST",
-      url: "funcionCarrito.php",
-      data: ("tarea=Carrito"+"&idusua="+user),
-      dataType: "html",
-      success: function(data){
-        $("#contenido").html(data);
-                    }
-  });
-}
-
-//funcion para Eliminar productos de la lsita del carrito
-function Ecar(id){
-  var ant = $("#ant").val();
-  var sig=ant+1;
-  $.ajax({
-      type: "POST",
-      url: "funcionCarrito.php",
-      data: ("tarea=Elimina"+"&idprod="+id),
-      dataType: "html",
-      success: function(data){
-        Ccarrito();
-        Carrito();
-        $("#d"+sig).focus();
-        }
-  });
-}
-
 
 //comprueba que el correo introducido no se haya registrado anteriormente
 function Ccorreo(){
@@ -355,7 +239,8 @@ function cambiar() {
 
 //funcion para validar los campos de texto
 function validaTexto(id){
-    var letras= /^[a-zA-Z\s]+$/;
+    var letras= /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+        // var letras= /^[a-zA-Z\s]+$/;
     if( $("#"+id).val() == null || $("#"+id).val() == "" ){
         $("#icono"+id).remove();
         $("#"+id).parent().parent().addClass("has-error has-feedback");

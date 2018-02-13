@@ -18,7 +18,7 @@ if(isset($_COOKIE['mi_cookie'])!=0 || isset($_COOKIE['mi_cookie'])!=""){
 		$photo	 = $var->photo;
 
 }else {
-		$nivel    =   "";
+	 $nivel    =   "";
 	 $archivo_actual = basename($_SERVER['PHP_SELF']);
 	 if ($archivo_actual != "loginform.php" && $archivo_actual != "register.php") {
 			header('Location:'.$direccionBase);

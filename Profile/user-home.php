@@ -20,7 +20,7 @@
 	<div class="container-fluid">
   	<div class="container-home-profile col-md-12">
       <div class="col-md-5">
-        <img class="profilePicture" src=<?php echo $direccionBase.$photo; ?> alt="pp"/>
+         <img class="profilePicture" src=<?php echo $direccionBase.$photo; ?> alt="pp"/> 
       </div>
       <div class="col-md-7">
         <div class="profile-info">

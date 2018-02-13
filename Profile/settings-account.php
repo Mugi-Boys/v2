@@ -19,9 +19,10 @@
 	<div class = "container-fluid">
     <div class="col-xs-12 col-md-12 sticky">
 
-          <form class="bookingForm" method="POST" ref="" >
+          <form class="bookingForm" method="POST" ref="" id="myData" name="myData">
           <!-- <form class="bookingForm" method="POST" ref={ref => (this.form = ref)} onSubmit={e => this.handleSubmit(e)} > -->
             <!-- {/* Basic form */} -->
+						<input type="hidden" name="idusua" id="idusua" value="<?php echo $id_usua; ?>">
 						<?php $actualData = "SELECT * FROM users WHERE id_user=$id_usua";
 						 $result = mysqli_query($conexion,$actualData);
 						 $dato = mysqli_fetch_array($result);
@@ -38,26 +39,26 @@
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Nombre</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="n_firstname" placeholder="" value=<?php echo '"'.$dato['first_name'].'"'; ?>/>
+                    <input type="text" name="n_firstname" id="n_firstname" placeholder="" value=<?php echo '"'.$dato['first_name'].'"'; ?>/>
                   </div>
                 </div>
 
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Apellido</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="n_lastname" placeholder="" value=<?php echo '"'.$dato['last_name'].'"'; ?>/>
+                    <input type="text" name="n_lastname" id="n_lastname" placeholder="" value=<?php echo '"'.$dato['last_name'].'"'; ?>/>
                   </div>
                 </div>
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Soy</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="" disabled/>
+                    <input type="text" name="soy" id="soy" disabled/>
                   </div>
                 </div>
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Fecha de nacimiento</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="" disabled value=<?php echo '"'.$dato['birth'].'"'; ?>/>
+                    <input type="text" name="birthDate" id="birthDate" disabled value=<?php echo '"'.$dato['birth'].'"'; ?>/>
                   </div>
                 </div>
 
@@ -71,7 +72,7 @@
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Número de telefono</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="n_phone" placeholder="" value=<?php echo '"'.$contactData['phone'].'"'; ?>/>
+                    <input type="text" name="n_phone" name="n_phone" placeholder="" value=<?php echo '"'.$contactData['phone'].'"'; ?>/>
 
                   </div>
                 </div>
@@ -90,13 +91,13 @@
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">¿Dónde vives?</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="n_address" placeholder="" value=<?php echo '"'.$contactData['adress'].'"'; ?>/>
+                    <input type="text" name="n_address" id="n_address" placeholder="" value=<?php echo '"'.$contactData['adress'].'"'; ?>/>
                   </div>
                 </div>
                 <div class="col-md-12 form-group">
                   <label class="col-md-4 form-group">Describete</label>
                   <div class="control col-md-8 form-group">
-                    <input type="text" name="n_biography" placeholder="" value=<?php echo '"'.$dato['biograpy'].'"'; ?>/>
+                    <input type="text" name="n_biography" id="n_biography" placeholder="" value=<?php echo '"'.$dato['biography'].'"'; ?>/>
                   </div>
                 </div>
 
@@ -135,19 +136,25 @@
                 <label class="form-group">Contraseña</label>
               </div>
               <div class="control col-md-8 col-xs-12 form-group">
-                <input type="password" name="user_password" />
+                <input type="password" name="user_password" id="user_password" />
               </div>
               <div class="col-md-4 col-xs-12 form-group">
                 <div class="control">
-                  <button type="submit" class="btn btn-magenta" >Guardar Cambios</button>
+                  <button type="button" onclick="Musuario()" id="boton" name="boton" class="btn btn-magenta" >Guardar Cambios</button>
                 </div>
               </div>
             </div>
           </form>
-        </div>
-  </div>
 
+					<div id="alerta" class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong>¡Felicidades!</strong> Has actualizado tus datos correctamente.
+					</div>
+
+        </div>
+
+  </div>
 	<!-- Footer -->
-	<?php include '../header&footer_includes/footer.php';?>
+	<?php include '../header&footer_includes/pie.php' ?>
 </body>
 </html>

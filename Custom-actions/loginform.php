@@ -28,7 +28,7 @@
                   <div id="alerta" class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <strong>¡Ups!</strong> Al parecer tu correo o contraseña son equivocados revisalos.<br>
-                    si no tienes una cuenta <a href="rusuarios.php" class="alert-link">Registrate aqui</a>.
+                    si no tienes una cuenta <a href="register.php" class="alert-link">Registrate aqui</a>.
                   </div>
               </div>
               <input type="hidden" name="last_site" id="last_site" <?php if(isset($_COOKIE['mi_cookie'])){ echo "value=".getenv('HTTP_REFERER'); }else{ echo 'value='.$direccionBase;} ?>>

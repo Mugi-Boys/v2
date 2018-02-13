@@ -134,7 +134,6 @@
 <!--scrips para el funcionamiento de las validaciones hasta el final para hacer mas veloz la carga de la pagina-->
 					<script type="text/javascript">
 			        $(document).ready(function() {
-								Ccarrito();
 					        $("#alerta").hide();
 			            $("span.help-block").hide();
 			        $("#usuario").blur(function(){validaTexto("usuario")});
